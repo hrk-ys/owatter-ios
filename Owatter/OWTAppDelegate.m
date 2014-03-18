@@ -23,6 +23,9 @@
 
     [FBLoginView class];
     
+    // CoreData
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    
     return YES;
 }
 							

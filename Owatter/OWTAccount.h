@@ -24,5 +24,6 @@ extern NSString* const OWTAccountDidFinishLogout;
 - (void)loginWithFBSession:(FBSession*)session
                  completed:(HYErrorBlock)completed;
 - (void)logout;
+- (void)updateSession:(HYErrorBlock)completed;
 
 @end
