@@ -33,6 +33,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.tweetTextView setBorderColor:nil borderWidth:0 cornerRadius:2.0f];
+    
     self.context = [NSManagedObjectContext context];
     self.tweet = [OWTTweet createInContext:self.context];
     
@@ -44,6 +46,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 #pragma mark - Navigation

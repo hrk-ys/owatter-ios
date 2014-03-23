@@ -12,6 +12,17 @@
 
 // Custom logic goes here.
 
++ (OWTMessage*)messageWithId:(NSString*)messageId
+{
+    OWTMessage* message = [OWTMessage findFirstByAttribute:@"messageId" withValue:messageId];
+    
+    if (!message) {
+        message = [OWTMessage createEntity];
+    }
+    
+    return message;
+}
+
 - (void)setInfoWithDic:(NSDictionary*)dic
 {
     if ([dic enableValue:@"content"])

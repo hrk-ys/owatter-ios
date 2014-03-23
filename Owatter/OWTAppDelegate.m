@@ -7,6 +7,7 @@
 //
 
 #import "OWTAppDelegate.h"
+#import "OWTDataManager.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -26,6 +27,8 @@
     // CoreData
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
+
+    [self setupAppearance];
     return YES;
 }
 							
@@ -57,6 +60,7 @@
     
     [FBAppCall handleDidBecomeActive];
 
+    [[OWTDataManager sharedInstance] syncData];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -74,5 +78,24 @@
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
+
+- (void)setupAppearance
+{
+//    [JDStatusBarNotification setDefaultStyle:^JDStatusBarStyle *(JDStatusBarStyle *style) {
+//        style.textColor = [UIColor colorWithRed:0.059 green:0.386 blue:0.099 alpha:1.000];
+//        style.font = [UIFont boldSystemFontOfSize:13.0f];
+//        return style;
+//    }];
+    
+    UIColor* naviTinyColor = [UIColor colorWithRed:0.582 green:0.406 blue:0.080 alpha:1.000];
+    [[UINavigationBar appearance] setBarTintColor:naviTinyColor];
+    [[UINavigationBar appearance] setTintColor:naviTinyColor];
+    [[UIBarButtonItem appearance] setTintColor:naviTinyColor];
+
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.990 green:0.763 blue:0.197 alpha:1.000]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+
+    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: naviTinyColor }];
+    
+}
 
 @end

@@ -38,6 +38,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [_messageTextField setBorderColor:nil borderWidth:0 cornerRadius:2.0f];
+
     _accountStore = [[ACAccountStore alloc] init];
     
     [_messageTextField becomeFirstResponder];
@@ -161,7 +163,7 @@
                       else {
                           dispatch_async(dispatch_get_main_queue(), ^{ [SVProgressHUD dismiss]; });
                           // The server did not respond ... were we rate-limited?
-                          NSLog(@"The response status code is %d",
+                          NSLog(@"The response status code is %lu",
                                 urlResponse.statusCode);
                       }
                   } else {
@@ -238,6 +240,11 @@
     }];
 
     
+}
+
+- (IBAction)tappedView:(id)sender {
+    if (self.messageTextField.isFirstResponder)
+        [self.messageTextField resignFirstResponder];
 }
 
 @end

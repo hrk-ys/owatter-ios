@@ -39,7 +39,6 @@
     
     FBLoginView* loginView = [[FBLoginView alloc] initWithReadPermissions:@[ @"basic_info" ]];
     loginView.center = self.view.center;
-    loginView.originY -= 100;
     loginView.delegate = self;
     [self.view addSubview:loginView];
 }
@@ -56,6 +55,7 @@
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
+    [FBSession.activeSession closeAndClearTokenInformation];
     [error show];
 }
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user

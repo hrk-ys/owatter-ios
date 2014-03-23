@@ -10,31 +10,13 @@
 
 @implementation OWTSuccessButton
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)awakeFromNib
 {
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.000 green:0.567 blue:0.050 alpha:1.000]] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor colorWithRed:0.584 green:0.521 blue:0.094 alpha:1.000] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.994 green:0.944 blue:0.378 alpha:1.000]] forState:UIControlStateNormal];
     
     self.layer.cornerRadius = 5.0f;
     [self setClipsToBounds:YES];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

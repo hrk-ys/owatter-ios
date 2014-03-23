@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0330DC9A33BF4DCA9CEDC6FA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E841DC048D4C3CBDCFA9D9 /* libPods.a */; };
+		E912EF8618D9D5B500B0D383 /* OWTHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E912EF8518D9D5B500B0D383 /* OWTHistoryViewController.m */; };
+		E912EF8918DC922400B0D383 /* OWTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E912EF8818DC922400B0D383 /* OWTCell.m */; };
+		E912EF8C18DD1BFE00B0D383 /* OWTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E912EF8B18DD1BFE00B0D383 /* OWTDataManager.m */; };
+		E912EF8E18DDDA5200B0D383 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E912EF8D18DDDA5200B0D383 /* Reveal.framework */; };
 		E91AC8DE18D4A57700343998 /* OWTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8DD18D4A57700343998 /* OWTRootViewController.m */; };
 		E91AC8E118D4A73D00343998 /* OWTAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8E018D4A73D00343998 /* OWTAccount.m */; };
 		E91AC8E518D4ABF400343998 /* OWTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8E418D4ABF400343998 /* OWTLoginViewController.m */; };
 		E91AC8EC18D5D36E00343998 /* OWTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8EB18D5D36E00343998 /* OWTSettingViewController.m */; };
 		E91AC8EF18D6780900343998 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8ED18D6780900343998 /* Model.xcdatamodeld */; };
 		E91AC8F218D7405300343998 /* OWTSuccessButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E91AC8F118D7405300343998 /* OWTSuccessButton.m */; };
+		E9615F4F18D8ADF800D8C2D9 /* OWTDefaultButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E9615F4E18D8ADF800D8C2D9 /* OWTDefaultButton.m */; };
+		E9615F5218D8AF6B00D8C2D9 /* OWTTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9615F5118D8AF6B00D8C2D9 /* OWTTopViewController.m */; };
 		E98BE25A18D74345006D717B /* _OWTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E98BE25318D74345006D717B /* _OWTMessage.m */; };
 		E98BE25B18D74345006D717B /* _OWTTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = E98BE25518D74345006D717B /* _OWTTweet.m */; };
 		E98BE25C18D74345006D717B /* OWTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E98BE25718D74345006D717B /* OWTMessage.m */; };
@@ -50,6 +56,13 @@
 /* Begin PBXFileReference section */
 		68A4F632EE4E4EB6B86465C4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A4E841DC048D4C3CBDCFA9D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E912EF8418D9D5B500B0D383 /* OWTHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTHistoryViewController.h; sourceTree = "<group>"; };
+		E912EF8518D9D5B500B0D383 /* OWTHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTHistoryViewController.m; sourceTree = "<group>"; };
+		E912EF8718DC922400B0D383 /* OWTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTCell.h; sourceTree = "<group>"; };
+		E912EF8818DC922400B0D383 /* OWTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTCell.m; sourceTree = "<group>"; };
+		E912EF8A18DD1BFE00B0D383 /* OWTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTDataManager.h; sourceTree = "<group>"; };
+		E912EF8B18DD1BFE00B0D383 /* OWTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTDataManager.m; sourceTree = "<group>"; };
+		E912EF8D18DDDA5200B0D383 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		E91AC8DC18D4A57700343998 /* OWTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTRootViewController.h; sourceTree = "<group>"; };
 		E91AC8DD18D4A57700343998 /* OWTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTRootViewController.m; sourceTree = "<group>"; };
 		E91AC8DF18D4A73D00343998 /* OWTAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTAccount.h; sourceTree = "<group>"; };
@@ -61,6 +74,10 @@
 		E91AC8EE18D6780900343998 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E91AC8F018D7405300343998 /* OWTSuccessButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTSuccessButton.h; sourceTree = "<group>"; };
 		E91AC8F118D7405300343998 /* OWTSuccessButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTSuccessButton.m; sourceTree = "<group>"; };
+		E9615F4D18D8ADF800D8C2D9 /* OWTDefaultButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTDefaultButton.h; sourceTree = "<group>"; };
+		E9615F4E18D8ADF800D8C2D9 /* OWTDefaultButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTDefaultButton.m; sourceTree = "<group>"; };
+		E9615F5018D8AF6B00D8C2D9 /* OWTTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWTTopViewController.h; sourceTree = "<group>"; };
+		E9615F5118D8AF6B00D8C2D9 /* OWTTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWTTopViewController.m; sourceTree = "<group>"; };
 		E98BE25218D74345006D717B /* _OWTMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OWTMessage.h; sourceTree = "<group>"; };
 		E98BE25318D74345006D717B /* _OWTMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OWTMessage.m; sourceTree = "<group>"; };
 		E98BE25418D74345006D717B /* _OWTTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OWTTweet.h; sourceTree = "<group>"; };
@@ -103,6 +120,7 @@
 			files = (
 				E9F4997718D0BB1200298B78 /* CoreGraphics.framework in Frameworks */,
 				E9F4997918D0BB1200298B78 /* UIKit.framework in Frameworks */,
+				E912EF8E18DDDA5200B0D383 /* Reveal.framework in Frameworks */,
 				E9F4997518D0BB1200298B78 /* Foundation.framework in Frameworks */,
 				0330DC9A33BF4DCA9CEDC6FA /* libPods.a in Frameworks */,
 			);
@@ -126,6 +144,8 @@
 			children = (
 				E91AC8DF18D4A73D00343998 /* OWTAccount.h */,
 				E91AC8E018D4A73D00343998 /* OWTAccount.m */,
+				E912EF8A18DD1BFE00B0D383 /* OWTDataManager.h */,
+				E912EF8B18DD1BFE00B0D383 /* OWTDataManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -135,6 +155,10 @@
 			children = (
 				E91AC8F018D7405300343998 /* OWTSuccessButton.h */,
 				E91AC8F118D7405300343998 /* OWTSuccessButton.m */,
+				E9615F4D18D8ADF800D8C2D9 /* OWTDefaultButton.h */,
+				E9615F4E18D8ADF800D8C2D9 /* OWTDefaultButton.m */,
+				E912EF8718DC922400B0D383 /* OWTCell.h */,
+				E912EF8818DC922400B0D383 /* OWTCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -154,6 +178,10 @@
 				E98BE26218D744B1006D717B /* OWTCreateReplyMessageViewController.m */,
 				E98BE26418D746E4006D717B /* OWTCreateReceiveViewController.h */,
 				E98BE26518D746E4006D717B /* OWTCreateReceiveViewController.m */,
+				E9615F5018D8AF6B00D8C2D9 /* OWTTopViewController.h */,
+				E9615F5118D8AF6B00D8C2D9 /* OWTTopViewController.m */,
+				E912EF8418D9D5B500B0D383 /* OWTHistoryViewController.h */,
+				E912EF8518D9D5B500B0D383 /* OWTHistoryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +233,7 @@
 		E9F4997318D0BB1200298B78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E912EF8D18DDDA5200B0D383 /* Reveal.framework */,
 				E9F4997418D0BB1200298B78 /* Foundation.framework */,
 				E9F4997618D0BB1200298B78 /* CoreGraphics.framework */,
 				E9F4997818D0BB1200298B78 /* UIKit.framework */,
@@ -395,6 +424,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E91AC8EC18D5D36E00343998 /* OWTSettingViewController.m in Sources */,
+				E9615F4F18D8ADF800D8C2D9 /* OWTDefaultButton.m in Sources */,
+				E912EF8918DC922400B0D383 /* OWTCell.m in Sources */,
 				E98BE25A18D74345006D717B /* _OWTMessage.m in Sources */,
 				E98BE26A18D749F1006D717B /* NSError+Creator.m in Sources */,
 				E98BE25B18D74345006D717B /* _OWTTweet.m in Sources */,
@@ -404,12 +435,15 @@
 				E9F4998518D0BB1200298B78 /* OWTAppDelegate.m in Sources */,
 				E91AC8EF18D6780900343998 /* Model.xcdatamodeld in Sources */,
 				E98BE26618D746E4006D717B /* OWTCreateReceiveViewController.m in Sources */,
+				E912EF8618D9D5B500B0D383 /* OWTHistoryViewController.m in Sources */,
+				E912EF8C18DD1BFE00B0D383 /* OWTDataManager.m in Sources */,
 				E98BE26018D7439B006D717B /* OWTCreateTweetViewController.m in Sources */,
 				E91AC8F218D7405300343998 /* OWTSuccessButton.m in Sources */,
 				E91AC8E118D4A73D00343998 /* OWTAccount.m in Sources */,
 				E91AC8E518D4ABF400343998 /* OWTLoginViewController.m in Sources */,
 				E91AC8DE18D4A57700343998 /* OWTRootViewController.m in Sources */,
 				E98BE25C18D74345006D717B /* OWTMessage.m in Sources */,
+				E9615F5218D8AF6B00D8C2D9 /* OWTTopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +569,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Owatter/Owatter-Prefix.pch";
 				INFOPLIST_FILE = "Owatter/Owatter-Info.plist";
@@ -549,6 +587,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Owatter/Owatter-Prefix.pch";
 				INFOPLIST_FILE = "Owatter/Owatter-Info.plist";

@@ -22,13 +22,17 @@
     #import <SDWebImage/UIImageView+WebCache.h>
     #import <SVProgressHUD.h>
     #import <AFNetworking.h>
+    #import <JDStatusBarNotification.h>
 
-#import "NSError+Creator.h"
+    #import "NSError+Creator.h"
 
     #import "OWTAccount.h"
     #import "OWTTweet.h"
-#import "OWTMessage.h"
+    #import "OWTMessage.h"
 
 
 
 #endif
+
+#define SHOW_STATUS(message) [JDStatusBarNotification showWithStatus:message dismissAfter:3.f];
+

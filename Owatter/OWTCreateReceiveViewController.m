@@ -50,6 +50,20 @@
 }
 */
 
+- (IBAction)tappedThanksButton:(UIButton*)sender {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    sender.enabled = YES;
+    
+    [self.tweet sendThanksWithComplited:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        if (error) {
+            sender.enabled = NO;
+            [error show];
+            return;
+        }
+        SHOW_STATUS(@"Thanksしました");
+    }];
+}
 
 - (IBAction)tappedClose:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
