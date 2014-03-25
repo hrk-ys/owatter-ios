@@ -12,6 +12,19 @@
 
 @end
 
+
+@implementation OWTMessageCell
+
+- (void)awakeFromNib
+{
+    HYCharacterLabel* nameImageLabel = (HYCharacterLabel*)[self viewWithTag:4];
+
+    [nameImageLabel setBorderColor:[UIColor lightGrayColor] borderWidth:1.0f cornerRadius:5.0f];
+}
+
+@end
+
+
 @implementation OWTThanksCell
 
 - (IBAction)tappedThanksCell:(id)sender {

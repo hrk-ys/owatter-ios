@@ -12,6 +12,7 @@
 
 - (BOOL)isOwner;
 
+
 - (void)sendMessage:(NSString*)message complited:(HYErrorBlock)complited;
 
 - (void)sendThanksWithComplited:(HYErrorBlock)complited;

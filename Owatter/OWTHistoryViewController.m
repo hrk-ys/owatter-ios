@@ -101,11 +101,21 @@
     UIImageView* imageView = (UIImageView*)[cell viewWithTag:1];
     UILabel* nameLabel     = (UILabel*)[cell viewWithTag:2];
     UILabel* contentLabel  = (UILabel*)[cell viewWithTag:3];
+    HYCharacterLabel* nameImageLabel = (HYCharacterLabel*)[cell viewWithTag:4];
     
 
     [imageView setImageWithURL:[NSURL URLWithString:message.profImagePath] placeholderImage:nil options:SDWebImageRetryFailed];
     nameLabel.text = message.name;
     contentLabel.text = message.content;
+    
+    if (message.isHideUser) {
+        imageView.hidden = YES;
+        nameImageLabel.hidden = NO;
+        nameLabel.text = @"-";
+    } else {
+        imageView.hidden = NO;
+        nameImageLabel.hidden = YES;
+    }
 }
 
 

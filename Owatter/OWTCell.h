@@ -12,6 +12,10 @@
 
 @end
 
+@interface OWTMessageCell : OWTCell
+
+@end
+
 @protocol OWTThanksCellDelegate;
 @interface OWTThanksCell : OWTCell
 

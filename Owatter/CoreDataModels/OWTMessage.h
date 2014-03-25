@@ -5,6 +5,7 @@
 
 + (OWTMessage*)messageWithId:(NSString*)messageId;
 
+- (BOOL)isHideUser;
 - (void)setInfoWithDic:(NSDictionary*)dic;
 
 @end

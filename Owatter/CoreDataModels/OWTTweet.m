@@ -76,7 +76,6 @@
 {
     return [self.userId isEqualToString:[[OWTAccount sharedInstance] userId]];
 }
-
 - (void)sendMessage:(NSString*)message complited:(HYErrorBlock)complited
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

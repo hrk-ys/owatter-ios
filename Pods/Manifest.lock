@@ -23,7 +23,7 @@ PODS:
   - CocoaLumberjack/Extensions (1.8.1):
     - CocoaLumberjack/Core
   - Facebook-iOS-SDK (3.13.0)
-  - HYUtils (0.0.6):
+  - HYUtils (0.0.7):
     - CocoaLumberjack
   - JDStatusBarNotification (1.4.7)
   - MagicalRecord/Shorthand (2.2)
@@ -36,7 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 2.1.0)
   - Facebook-iOS-SDK
-  - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `c9e209965ebf2f74790f2592225684193d18ab79`)
+  - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `810e7466c0594d0e72193808177d20afb54dd847`)
   - JDStatusBarNotification (~> 1.4.7)
   - MagicalRecord/Shorthand (= 2.2)
   - SDWebImage (= 3.5.2)
@@ -45,14 +45,14 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   HYUtils:
-    :commit: c9e209965ebf2f74790f2592225684193d18ab79
+    :commit: 810e7466c0594d0e72193808177d20afb54dd847
     :git: https://github.com/hrk-ys/HYUtils.git
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
   Facebook-iOS-SDK: 5788541337dc88265bc940cb5ffb05915f9b64e3
-  HYUtils: 606493691fd8951e464c0b983dd81d39a8ef022f
+  HYUtils: 31865314be897bf5a78c9c663bae644b9bd49027
   JDStatusBarNotification: 8801f6fcd7e2c2a8b01aaea5a9b049b1cc395491
   MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e

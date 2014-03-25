@@ -23,6 +23,19 @@
     return message;
 }
 
+- (BOOL)isOwner
+{
+    return [self.userId isEqualToString:[[OWTAccount sharedInstance] userId]];
+}
+- (BOOL)isHideUser
+{
+    if ([self isOwner]) return NO;
+    if (self.tweet.messages.count < 3) {
+        return [self.tweet isOwner] ? YES : NO;
+    }
+    return NO;
+}
+
 - (void)setInfoWithDic:(NSDictionary*)dic
 {
     if ([dic enableValue:@"content"])

@@ -14,4 +14,5 @@
 #import "NSDictionary+Extention.h"
 #import "UIImage+Extention.h"
 #import "UIView+Border.h"
+#import "HYCharacterLabel.h"
 
