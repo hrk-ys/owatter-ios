@@ -21,8 +21,6 @@
     [HYLog updateLogLevel:LOG_FLAG_VERBOSE];
 #endif
     [HYLog setupLogger];
-
-    [FBLoginView class];
     
     // CoreData
     [MagicalRecord setupAutoMigratingCoreDataStack];
@@ -75,7 +73,8 @@
          annotation:(id)annotation
 {
     // Note this handler block should be the exact same as the handler passed to any open calls.
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication];
 }
 
 

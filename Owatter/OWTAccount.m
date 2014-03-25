@@ -106,6 +106,11 @@ NSString* const OWTAccountDidFinishLogout = @"OWTAccountDidFinishLogout";
 
 - (void)updateSession:(HYErrorBlock)completed
 {
+    if (!self.loginHash) {
+        completed([NSError errorWithTitle:@"認証エラー" message:@"認証状態が解除されました。再度ログインしてください"]);
+        return;
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"login_hash": self.loginHash};
     [manager POST:@"http://owatter.hrk-ys.net/login/update_session"

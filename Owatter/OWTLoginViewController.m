@@ -16,9 +16,6 @@
 @interface OWTLoginViewController ()
 <FBLoginViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
-
 @end
 
 @implementation OWTLoginViewController
@@ -49,10 +46,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)tappedLoginButton:(id)sender {
-    [self login];
-}
-
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     [FBSession.activeSession closeAndClearTokenInformation];
@@ -63,6 +56,8 @@
     if (FBSessionStateOpen == FBSession.activeSession.state) {
         [self login];
     }
+}
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
 }
 
 - (void)login {
