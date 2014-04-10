@@ -66,7 +66,12 @@
 }
 
 - (IBAction)tappedClose:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UIViewController* topViewController
+    = self.navigationController.viewControllers[0];
+
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    
+    [topViewController performSegueWithIdentifier:@"hist" sender:nil];
 }
 
 

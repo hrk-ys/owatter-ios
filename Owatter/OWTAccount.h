@@ -21,8 +21,8 @@ extern NSString* const OWTAccountDidFinishLogout;
 + (OWTAccount*)sharedInstance;
 - (BOOL)isLogin;
 
-- (void)loginWithFBSession:(FBSession*)session
-                 completed:(HYErrorBlock)completed;
+- (void)loginWithToken:(NSDictionary*)token
+             completed:(HYErrorBlock)completed;
 - (void)logout;
 - (void)updateSession:(HYErrorBlock)completed;
 

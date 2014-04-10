@@ -57,7 +57,7 @@ NSString* const OWTDataManagerDidFailureSync = @"OWTDataManagerDidFailureSync";
                                  @"last_sync_time": @(self.lastSyncTime),
                                  };
     
-    [manager POST:@"http://owatter.hrk-ys.net/data_sync"
+    [manager POST:@"http://api.owatter.hrk-ys.net/api/data_sync"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
               
@@ -107,7 +107,7 @@ NSString* const OWTDataManagerDidFailureSync = @"OWTDataManagerDidFailureSync";
                   [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
               }
               
-              [[NSNotificationCenter defaultCenter] postNotificationName:OWTDataManagerDidFailureSync object:self userInfo:@{}];
+              [[NSNotificationCenter defaultCenter] postNotificationName:OWTDataManagerDidFinishSync object:self userInfo:@{}];
               
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               

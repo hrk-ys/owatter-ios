@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OWTCreateTweetViewController : UIViewController
+@interface OWTCreateTweetViewController : UITableViewController
 
 @end

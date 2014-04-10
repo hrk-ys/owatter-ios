@@ -22,7 +22,6 @@ PODS:
   - CocoaLumberjack/Core (1.8.1)
   - CocoaLumberjack/Extensions (1.8.1):
     - CocoaLumberjack/Core
-  - Facebook-iOS-SDK (3.13.0)
   - HYUtils (0.0.7):
     - CocoaLumberjack
   - JDStatusBarNotification (1.4.7)
@@ -31,16 +30,17 @@ PODS:
     - SDWebImage/Core
   - SDWebImage/Core (3.5.2)
   - SSKeychain (1.2.1)
+  - STTwitter (0.1.2)
   - SVProgressHUD (1.0)
 
 DEPENDENCIES:
   - AFNetworking (= 2.1.0)
-  - Facebook-iOS-SDK
   - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `810e7466c0594d0e72193808177d20afb54dd847`)
   - JDStatusBarNotification (~> 1.4.7)
   - MagicalRecord/Shorthand (= 2.2)
   - SDWebImage (= 3.5.2)
   - SSKeychain
+  - STTwitter
   - SVProgressHUD (= 1.0)
 
 EXTERNAL SOURCES:
@@ -51,12 +51,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
-  Facebook-iOS-SDK: 5788541337dc88265bc940cb5ffb05915f9b64e3
   HYUtils: 31865314be897bf5a78c9c663bae644b9bd49027
   JDStatusBarNotification: 8801f6fcd7e2c2a8b01aaea5a9b049b1cc395491
   MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
+  STTwitter: b46bef092a1585abd1bdafc8b2b92048a37a14fc
   SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
 
 COCOAPODS: 0.29.0

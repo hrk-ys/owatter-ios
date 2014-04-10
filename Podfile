@@ -4,9 +4,9 @@ pod 'MagicalRecord/Shorthand', '2.2'
 pod 'HYUtils', :git => 'https://github.com/hrk-ys/HYUtils.git', :commit => '810e7466c0594d0e72193808177d20afb54dd847'
 pod 'SDWebImage', '3.5.2'
 pod 'SVProgressHUD', '1.0'
-pod 'Facebook-iOS-SDK'
 pod 'SSKeychain'
 pod 'JDStatusBarNotification', '~> 1.4.7'
+pod 'STTwitter'
 
 #post_install do | installer |
 #    require 'fileutils'

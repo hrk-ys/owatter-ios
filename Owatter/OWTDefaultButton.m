@@ -12,8 +12,8 @@
 
 - (void)awakeFromNib
 {
-    [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:0.877 alpha:1.000]] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.920 green:0.618 blue:0.242 alpha:1.000]] forState:UIControlStateNormal];
     
     self.layer.cornerRadius = 5.0f;
     [self setClipsToBounds:YES];

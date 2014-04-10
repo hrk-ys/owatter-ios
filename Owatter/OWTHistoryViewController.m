@@ -8,6 +8,7 @@
 
 #import "OWTHistoryViewController.h"
 #import "OWTCell.h"
+#import "OWTDataManager.h"
 
 @interface OWTHistoryViewController ()
 <OWTThanksCellDelegate, OWTPostCellDelegate>
@@ -28,7 +29,43 @@
     // Do any additional setup after loading the view.
     
     self.dataSource = [OWTTweet findAllSortedBy:@"createdAt" ascending:NO];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl = refreshControl;
+    [refreshControl addTarget:self action:@selector(refreshOccured:) forControlEvents:UIControlEventValueChanged];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(didFinishDataSync:)
+                   name:OWTDataManagerDidFinishSync
+                 object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+}
+
+- (void)refreshOccured:(id)sender
+{
+    [[OWTDataManager sharedInstance] syncData];
+}
+- (void)didFinishDataSync:(NSNotification*)notification
+{
+    self.dataSource = [OWTTweet findAllSortedBy:@"createdAt" ascending:NO];
+    [self.tableView reloadData];
+    
+    if (self.refreshControl.refreshing) {
+        [self.refreshControl endRefreshing];
+    }
+}
+
+
 
 
 - (BOOL)isTweetCell:(OWTTweet*)tweet row:(int)row

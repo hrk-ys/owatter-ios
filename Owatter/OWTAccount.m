@@ -8,7 +8,6 @@
 
 #import "OWTAccount.h"
 
-#import <FacebookSDK/FacebookSDK.h>
 #import <SSKeychain.h>
 
 NSString* const OWTAccountDidFinishLogin  = @"OWTAccountDidFinishLogin";
@@ -63,15 +62,15 @@ NSString* const OWTAccountDidFinishLogout = @"OWTAccountDidFinishLogout";
 }
 
 
-- (void)loginWithFBSession:(FBSession *)session
-                 completed:(HYErrorBlock)completed
+- (void)loginWithToken:(NSDictionary *)token
+             completed:(HYErrorBlock)completed
 {
-    LOG(@"session:%@", session);
+    LOG(@"token:%@", token);
     dispatch_async(dispatch_get_main_queue(), ^{
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSDictionary *parameters = @{@"token": session.accessTokenData.accessToken};
-        [manager POST:@"http://owatter.hrk-ys.net/login/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *parameters = token;
+        [manager POST:@"http://app.owatter.hrk-ys.net/api/login/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
             if (![responseObject enableValue:@"user_id"]) {
                 completed([NSError errorWithDomain:@"net.hrk-ys.Owatter" code:1 userInfo:@{}]);
@@ -87,7 +86,6 @@ NSString* const OWTAccountDidFinishLogout = @"OWTAccountDidFinishLogout";
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             completed(error);
-            [session closeAndClearTokenInformation];
             NSLog(@"Error: %@", error);
         }];
         
@@ -98,7 +96,6 @@ NSString* const OWTAccountDidFinishLogout = @"OWTAccountDidFinishLogout";
 {
     self.userId = nil;
     self.loginHash = nil;
-    [[FBSession activeSession] closeAndClearTokenInformation];
     [self saveData];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:OWTAccountDidFinishLogout object:self];
@@ -113,12 +110,14 @@ NSString* const OWTAccountDidFinishLogout = @"OWTAccountDidFinishLogout";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"login_hash": self.loginHash};
-    [manager POST:@"http://owatter.hrk-ys.net/login/update_session"
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/login/update_session"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
               if ([responseObject enableValue:@"ok"]) {
                   completed(nil);
+                  [[NSNotificationCenter defaultCenter] postNotificationName:OWTAccountDidFinishLogin object:self];
+
               } else {
                   completed([NSError errorWithTitle:@"認証エラー" message:@"認証状態が解除されました。再度ログインしてください"]);
                   [self logout];

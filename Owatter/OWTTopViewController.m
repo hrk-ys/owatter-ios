@@ -9,7 +9,13 @@
 #import "OWTTopViewController.h"
 
 @interface OWTTopViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *owatterButton;
+@property (weak, nonatomic) IBOutlet UIButton *owatterButton1;
+@property (weak, nonatomic) IBOutlet UIButton *owatterButton2;
+@property (weak, nonatomic) IBOutlet UIButton *owatterButton3;
+@property (weak, nonatomic) IBOutlet UIButton *owatterButton4;
+@property (weak, nonatomic) IBOutlet UIView *wrapView;
+
+
 
 @end
 
@@ -29,9 +35,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIColor* mainColor = [UIColor colorWithRed:0.981 green:0.491 blue:0.118 alpha:1.000];
-    [self.owatterButton setBorderColor:mainColor borderWidth:1.0f cornerRadius:5.0f];
-    [self.owatterButton setTitleColor:mainColor forState:UIControlStateNormal];
+    [self.wrapView setBorderColor:nil borderWidth:0 cornerRadius:5.0f];
+    
+    [self setupButton:_owatterButton1 bgColor:[UIColor colorWithRed:0.300 green:0.702 blue:0.839 alpha:1.000]];
+    [self setupButton:_owatterButton2 bgColor:[UIColor colorWithRed:0.304 green:0.680 blue:0.290 alpha:1.000]];
+    [self setupButton:_owatterButton3 bgColor:[UIColor colorWithRed:0.806 green:0.236 blue:0.245 alpha:1.000]];
+    [self setupButton:_owatterButton4 bgColor:[UIColor colorWithRed:0.207 green:0.464 blue:0.745 alpha:1.000]];
+}
+
+- (void)setupButton:(UIButton*)button bgColor:(UIColor*)color
+{
+    [button setBorderColor:nil borderWidth:0 cornerRadius:5.0f];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageWithColor:color] forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning

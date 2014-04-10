@@ -14,11 +14,8 @@
 #import <Accounts/Accounts.h>
 
 @interface OWTCreateReplyMessageViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *messageTextField;
 
-@property (nonatomic) BOOL isTweetDone;
 
-@property (nonatomic) ACAccountStore *accountStore;
 
 @end
 
@@ -38,11 +35,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [_messageTextField setBorderColor:nil borderWidth:0 cornerRadius:2.0f];
 
-    _accountStore = [[ACAccountStore alloc] init];
     
-    [_messageTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,7 +99,6 @@
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     [self sendTweet];
-    return;
     
     ACAccountType *twitterAccountType =
     [self.accountStore accountTypeWithAccountTypeIdentifier:
@@ -121,7 +114,7 @@
              [self.accountStore accountsWithAccountType:twitterAccountType];
              NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
                            @"/1.1/statuses/update.json"];
-             NSDictionary *params = @{@"status" : S(@"%@ #owatter", self.tweet.content) };
+             NSDictionary *params = @{@"status" : S(@"%@ http://bit.ly/1fGQNFs", self.tweet.content) };
              SLRequest *request =
              [SLRequest requestForServiceType:SLServiceTypeTwitter
                                 requestMethod:SLRequestMethodPOST

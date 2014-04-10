@@ -9,13 +9,13 @@
 #import "OWTAppDelegate.h"
 #import "OWTDataManager.h"
 
-#import <FacebookSDK/FacebookSDK.h>
-
 @implementation OWTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
 #ifdef DEBUG
     [HYLog updateLogLevel:LOG_FLAG_VERBOSE];
@@ -27,6 +27,13 @@
     
 
     [self setupAppearance];
+    
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(didFinishLogin:)
+                   name:OWTAccountDidFinishLogin
+                 object:nil];
+    
     return YES;
 }
 							
@@ -52,12 +59,6 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     
-    // FBSample logic
-    // Call the 'activateApp' method to log an app event for use in analytics and advertising reporting.
-    [FBAppEvents activateApp];
-    
-    [FBAppCall handleDidBecomeActive];
-
     [[OWTDataManager sharedInstance] syncData];
 }
 
@@ -67,16 +68,42 @@
 }
 
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
-    // Note this handler block should be the exact same as the handler passed to any open calls.
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    NSMutableString *tokenId = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@",devToken]];
+    [tokenId setString:[tokenId stringByReplacingOccurrencesOfString:@" " withString:@""]]; //余計な文字を消す
+    [tokenId setString:[tokenId stringByReplacingOccurrencesOfString:@"<" withString:@""]];
+    [tokenId setString:[tokenId stringByReplacingOccurrencesOfString:@">" withString:@""]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+#ifdef DEBUG
+                                 @"is_debug" : @(1),
+#endif
+                                 @"token": tokenId
+                                 };
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/login/token"
+       parameters:parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {}
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
 }
 
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+}
+
+- (void)didFinishLogin:(NSNotification*)notification
+{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge
+                                                                           | UIRemoteNotificationTypeSound
+                                                                           | UIRemoteNotificationTypeAlert)];
+
+}
 
 - (void)setupAppearance
 {
@@ -86,12 +113,12 @@
 //        return style;
 //    }];
     
-    UIColor* naviTinyColor = [UIColor colorWithRed:0.582 green:0.406 blue:0.080 alpha:1.000];
+    UIColor* naviTinyColor = [UIColor whiteColor];
     [[UINavigationBar appearance] setBarTintColor:naviTinyColor];
     [[UINavigationBar appearance] setTintColor:naviTinyColor];
     [[UIBarButtonItem appearance] setTintColor:naviTinyColor];
 
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.990 green:0.763 blue:0.197 alpha:1.000]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:0.039 alpha:0.800]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 
     [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: naviTinyColor }];
     
