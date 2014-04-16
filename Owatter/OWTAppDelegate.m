@@ -9,6 +9,8 @@
 #import "OWTAppDelegate.h"
 #import "OWTDataManager.h"
 
+#import <GAI.h>
+
 @implementation OWTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -24,7 +26,9 @@
     
     // CoreData
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    
+
+    // Initialize tracker.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-42236549-6"];
 
     [self setupAppearance];
     

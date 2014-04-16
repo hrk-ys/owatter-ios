@@ -7,9 +7,12 @@
 //
 
 #import "OWTCreateReceiveViewController.h"
+#import <GADBannerView.h>
 
-@interface OWTCreateReceiveViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *replyMessageTextView;
+@interface OWTCreateReceiveViewController ()<GADBannerViewDelegate>
+
+@property (nonatomic) GADBannerView *adMobView;
+@property (nonatomic) BOOL           adMobIsVisible;
 
 @end
 
@@ -28,9 +31,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    OWTMessage* message = [self.tweet.messages objectAtIndex:0];
-    self.replyMessageTextView.text = message.content;
+
+    self.adMobView                    = [[GADBannerView alloc] init];
+    self.adMobView.height             = 0;
+    self.adMobView.delegate           = self;
+    self.adMobView.adUnitID           = @"ca-app-pub-1525765559709019/6966282945";
+    self.adMobView.rootViewController = self;
+    self.adMobView.adSize             = kGADAdSizeSmartBannerPortrait;
+    GADRequest *request = [GADRequest request];
+#ifdef DEBUG
+    request.testDevices = [NSArray arrayWithObjects:
+                           GAD_SIMULATOR_ID,
+                           nil];
+#endif
+    [self.adMobView loadRequest:request];
+    self.adMobView.hidden = YES;
+    [self.view addSubview:self.adMobView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +81,7 @@
     }];
 }
 
+
 - (IBAction)tappedClose:(id)sender {
     UIViewController* topViewController
     = self.navigationController.viewControllers[0];
@@ -74,5 +91,38 @@
     [topViewController performSegueWithIdentifier:@"hist" sender:nil];
 }
 
+
+#pragma mark -
+#pragma mark admod
+
+- (void)adViewDidReceiveAd:(GADBannerView *)banner
+{
+    LOGTrace;
+    if (self.adMobIsVisible) { return; }
+    
+    self.adMobIsVisible = YES;
+    
+    self.adMobView.originY = self.view.height;
+    self.adMobView.hidden  = NO;
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         self.adMobView.originY -= self.adMobView.height;
+                     } completion:^(BOOL finished) {
+                     }];
+}
+
+- (void)adView:(GADBannerView *)banner didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    LOGTrace;
+    if (!self.adMobIsVisible) { return; }
+    self.adMobIsVisible = NO;
+    
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         self.adMobView.originY = self.view.height;
+                     } completion:^(BOOL finished) {
+                         self.adMobView.hidden = YES;
+                     }];
+}
 
 @end

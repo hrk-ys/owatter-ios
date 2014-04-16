@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Google-Mobile-Ads-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HYUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3449D58B6C27452A8B234400</key>
+		<key>0A90493853544949BE5D05D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>612E6237AE6A4F43A43B8CE8</key>
+		<key>0DA4EF831ABD440497B7CBDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A2D826432584DD3ABC9F197</key>
+		<key>2BA3F22FF5944140A2857AEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>922EA5755632439AB4C16FB3</key>
+		<key>40A122CC379D4D3ABA72FD6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99847406C6F14334B50D2B53</key>
+		<key>550B774216344778A774BF9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9952E6959EE4F58A3424D32</key>
+		<key>5942E10961584FD48538B7C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BEF40041499D4AB7A8E0B06E</key>
+		<key>7DE070F92C994A648CE0BCE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C94B2757F96346F694F021AC</key>
+		<key>9E22F1D7992E499A89DFBEE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBB5A57A00BB441BA337C4DB</key>
+		<key>C41919F496C545FAA9292505</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D42CDCC2AC684AD28BCA8FD2</key>
+		<key>DB1DD4440165452C909A151E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F409332C04874C0095A83E51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4563095E9BD40D6AC7E5A36</key>
 		<dict>
 			<key>primary</key>
 			<true/>

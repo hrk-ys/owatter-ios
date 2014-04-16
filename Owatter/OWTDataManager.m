@@ -57,7 +57,7 @@ NSString* const OWTDataManagerDidFailureSync = @"OWTDataManagerDidFailureSync";
                                  @"last_sync_time": @(self.lastSyncTime),
                                  };
     
-    [manager POST:@"http://api.owatter.hrk-ys.net/api/data_sync"
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/data_sync"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
               

@@ -89,9 +89,8 @@
 - (void)didFinishLogout:(NSNotification*)notification
 {
     self.mainView.hidden = YES;
-    if (self.hasLoginView) {
-        self.loginView.hidden = NO;
-    } else {
+    self.loginView.hidden = NO;
+    if (!self.hasLoginView) {
         [self performSegueWithIdentifier:@"loginView" sender:nil];
     }
 }

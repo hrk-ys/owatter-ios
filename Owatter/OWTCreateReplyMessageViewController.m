@@ -183,7 +183,7 @@
                                  @"tweet": self.tweet.content,
                                  @"reply": self.messageTextField.text,
                                  };
-    [manager POST:@"http://owatter.hrk-ys.net/tweet/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/tweet/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject enableValue:@"error_code"]) {
             

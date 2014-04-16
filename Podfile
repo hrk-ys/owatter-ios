@@ -7,6 +7,8 @@ pod 'SVProgressHUD', '1.0'
 pod 'SSKeychain'
 pod 'JDStatusBarNotification', '~> 1.4.7'
 pod 'STTwitter'
+pod 'Google-Mobile-Ads-SDK'
+pod 'GoogleAnalytics-iOS-SDK'
 
 #post_install do | installer |
 #    require 'fileutils'

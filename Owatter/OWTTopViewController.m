@@ -7,14 +7,18 @@
 //
 
 #import "OWTTopViewController.h"
+#import <GADBannerView.h>
 
-@interface OWTTopViewController ()
+@interface OWTTopViewController ()<GADBannerViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *owatterButton1;
 @property (weak, nonatomic) IBOutlet UIButton *owatterButton2;
 @property (weak, nonatomic) IBOutlet UIButton *owatterButton3;
 @property (weak, nonatomic) IBOutlet UIButton *owatterButton4;
 @property (weak, nonatomic) IBOutlet UIView *wrapView;
 
+@property (nonatomic) GADBannerView *adMobView;
+@property (nonatomic) BOOL           adMobIsVisible;
 
 
 @end
@@ -41,6 +45,22 @@
     [self setupButton:_owatterButton2 bgColor:[UIColor colorWithRed:0.304 green:0.680 blue:0.290 alpha:1.000]];
     [self setupButton:_owatterButton3 bgColor:[UIColor colorWithRed:0.806 green:0.236 blue:0.245 alpha:1.000]];
     [self setupButton:_owatterButton4 bgColor:[UIColor colorWithRed:0.207 green:0.464 blue:0.745 alpha:1.000]];
+    
+    self.adMobView                    = [[GADBannerView alloc] init];
+    self.adMobView.height             = 0;
+    self.adMobView.delegate           = self;
+    self.adMobView.adUnitID           = @"ca-app-pub-1525765559709019/5489549743";
+    self.adMobView.rootViewController = self;
+    self.adMobView.adSize             = kGADAdSizeSmartBannerPortrait;
+    GADRequest *request = [GADRequest request];
+#ifdef DEBUG
+    request.testDevices = [NSArray arrayWithObjects:
+                           GAD_SIMULATOR_ID,
+                           nil];
+#endif
+    [self.adMobView loadRequest:request];
+    self.adMobView.hidden = YES;
+//    [self.view addSubview:self.adMobView];
 }
 
 - (void)setupButton:(UIButton*)button bgColor:(UIColor*)color
@@ -57,15 +77,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark -
+#pragma mark admod
+
+- (void)adViewDidReceiveAd:(GADBannerView *)banner
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    LOGTrace;
+    if (self.adMobIsVisible) { return; }
+    
+    self.adMobIsVisible = YES;
+    
+    self.adMobView.originY = self.view.height;
+    self.adMobView.hidden  = NO;
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         self.adMobView.originY -= self.adMobView.height;
+                     } completion:^(BOOL finished) {
+                     }];
 }
-*/
 
+- (void)adView:(GADBannerView *)banner didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    LOGTrace;
+    if (!self.adMobIsVisible) { return; }
+    self.adMobIsVisible = NO;
+    
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         self.adMobView.originY = self.view.height;
+                     } completion:^(BOOL finished) {
+                     }];
+}
 @end

@@ -84,7 +84,7 @@
                                  @"content":  message,
                                  };
     
-    [manager POST:@"http://owatter.hrk-ys.net/tweet/message"
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/tweet/message"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"JSON: %@", responseObject);
@@ -137,7 +137,7 @@
                                  @"tweet_id": self.tweetId,
                                  };
     
-    [manager POST:@"http://owatter.hrk-ys.net/tweet/thanks"
+    [manager POST:@"http://app.owatter.hrk-ys.net/api/tweet/thanks"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"JSON: %@", responseObject);
